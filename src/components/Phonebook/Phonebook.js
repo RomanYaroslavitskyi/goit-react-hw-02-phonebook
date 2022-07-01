@@ -1,4 +1,6 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import PropTypes from 'prop-types';
+import s from './Phonebook.module.css';
 
 const { Component } = require('react');
 
@@ -33,8 +35,8 @@ class Phonebook extends Component {
     const { handleChange, handleSubmit } = this;
     return (
       <>
-        <form onSubmit={handleSubmit}>
-          <label>
+        <form onSubmit={handleSubmit} className={s.form}>
+          <label className={s.label}>
             Name
             <input
               type="text"
@@ -44,9 +46,10 @@ class Phonebook extends Component {
               title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
               required
               onChange={handleChange}
+              className={s.input}
             />
           </label>
-          <label>
+          <label className={s.label}>
             Number
             <input
               type="tel"
@@ -56,9 +59,10 @@ class Phonebook extends Component {
               title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
               required
               onChange={handleChange}
+              className={s.input}
             />
           </label>
-          <button type="submit"> Add contact</button>
+          <button type="submit" className={s.btn}> Add contact</button>
         </form>
       </>
     );
@@ -66,3 +70,9 @@ class Phonebook extends Component {
 }
 
 export default Phonebook;
+
+
+Phonebook.propTypes = {
+  findContact: PropTypes.func.isRequired,
+  onSaveSubmit:PropTypes.func.isRequired
+};

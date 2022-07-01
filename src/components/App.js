@@ -4,6 +4,8 @@ import Phonebook from './Phonebook/Phonebook';
 import ContactsList from 'components/ContactsList/ContactsList';
 import Container from './Container/Container';
 import FilterContacts from './FilterContacts/FilterContacts';
+import s from './/App.module.css';
+
 
 class App extends Component {
   state = {
@@ -72,7 +74,7 @@ class App extends Component {
 
         <Container title="Contacts">
           {!contacts.length ? (
-            'Sorry is not a contact'
+            <p className={s.text}>Sorry , there are no contacts here .</p>
           ) : (
             <>
               <FilterContacts onChange={changeFilter} />
